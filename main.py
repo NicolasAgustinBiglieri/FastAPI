@@ -2,7 +2,7 @@
 """
 FastAPI:
 
-FastAPI aconseja utilizar Type Hints para un mejor funcionamiento.
+FastAPI aconseja utilizar Type Hints para un mejor funcionamiento.https://fastapi.tiangolo.com/
 
 Guía de instalación, consejos, etc:
 https://fastapi.tiangolo.com/
@@ -23,13 +23,15 @@ Generamos peticiones desde Thunder Client (como extensión en VSCode)
 """
 
 from fastapi import FastAPI
-from routers import products, users
+from routers import products, users, basic_auth_users, jwt_auth_users
 
 app = FastAPI()
 
 # Routers
 app.include_router(products.router)
 app.include_router(users.router)
+app.include_router(basic_auth_users.router)
+app.include_router(jwt_auth_users.router)
 
 @app.get("/")
 def read_root():
